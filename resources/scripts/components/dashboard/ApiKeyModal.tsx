@@ -14,10 +14,9 @@ const ApiKeyModal = ({ apiKey }: Props) => {
 
     return (
         <>
-            <h3 css={tw`mb-6 text-2xl`}>Your API Key</h3>
+            <h3 css={tw`mb-6 text-2xl`}>APIキー</h3>
             <p css={tw`text-sm mb-6`}>
-                The API key you have requested is shown below. Please store this in a safe location, it will not be
-                shown again.
+                要求したAPIキーを以下に示します。これを安全な場所に保管してください、それは二度と表示されません。
             </p>
             <pre css={tw`text-sm bg-neutral-900 rounded py-2 px-4 font-mono`}>
                 <CopyOnClick text={apiKey}>
@@ -26,7 +25,7 @@ const ApiKeyModal = ({ apiKey }: Props) => {
             </pre>
             <div css={tw`flex justify-end mt-6`}>
                 <Button type={'button'} onClick={() => dismiss()}>
-                    Close
+                    閉じる
                 </Button>
             </div>
         </>

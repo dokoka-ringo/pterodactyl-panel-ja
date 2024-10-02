@@ -77,23 +77,22 @@ const GSLTokenModalFeature = () => {
                 <Form>
                     <h2 css={tw`text-2xl mb-4 text-neutral-100`}>Invalid GSL token!</h2>
                     <p css={tw`mt-4`}>
-                        It seems like your Gameserver Login Token (GSL token) is invalid or has expired.
+                        Gameserverログイントークン（GSLトークン）が無効であるか、期限切れになっているようです。
                     </p>
                     <p css={tw`mt-4`}>
-                        You can either generate a new one and enter it below or leave the field blank to remove it
-                        completely.
+                        新しいものを生成して下に入力するか、フィールドを空白のままにして完全に削除できます。
                     </p>
                     <div css={tw`sm:flex items-center mt-4`}>
                         <Field
                             name={'gslToken'}
-                            label={'GSL Token'}
-                            description={'Visit https://steamcommunity.com/dev/managegameservers to generate a token.'}
+                            label={'GSLトークン'}
+                            description={'https://steamcommunity.com/dev/managegameservers でトークンを生成する。'}
                             autoFocus
                         />
                     </div>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button type={'submit'} css={tw`mt-4 sm:mt-0 sm:ml-4 w-full sm:w-auto`}>
-                            Update GSL Token
+                            GSLトークンを更新
                         </Button>
                     </div>
                 </Form>
