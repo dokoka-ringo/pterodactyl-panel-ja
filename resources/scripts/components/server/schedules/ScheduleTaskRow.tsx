@@ -29,13 +29,13 @@ interface Props {
 const getActionDetails = (action: string): [string, any] => {
     switch (action) {
         case 'command':
-            return ['Send Command', faCode];
+            return ['コマンドを送信', faCode];
         case 'power':
-            return ['Send Power Action', faToggleOn];
+            return ['パワーアクションを送信', faToggleOn];
         case 'backup':
-            return ['Create Backup', faFileArchive];
+            return ['バックアップを作成', faFileArchive];
         default:
-            return ['Unknown Action', faCode];
+            return ['未知のアクション', faCode];
     }
 };
 
@@ -76,8 +76,8 @@ export default ({ schedule, task }: Props) => {
                 onModalDismissed={() => setIsEditing(false)}
             />
             <ConfirmationModal
-                title={'Confirm task deletion'}
-                buttonText={'Delete Task'}
+                title={'タスクの削除を確認'}
+                buttonText={'タスクを削除'}
                 onConfirmed={onConfirmDeletion}
                 visible={visible}
                 onModalDismissed={() => setVisible(false)}
@@ -90,7 +90,7 @@ export default ({ schedule, task }: Props) => {
                 {task.payload && (
                     <div css={tw`md:ml-6 mt-2`}>
                         {task.action === 'backup' && (
-                            <p css={tw`text-xs uppercase text-neutral-400 mb-1`}>Ignoring files & folders:</p>
+                            <p css={tw`text-xs uppercase text-neutral-400 mb-1`}>ファイルとフォルダーを無視:</p>
                         )}
                         <div
                             css={tw`font-mono bg-neutral-800 rounded py-1 px-2 text-sm w-auto inline-block whitespace-pre-wrap break-all`}
@@ -105,7 +105,7 @@ export default ({ schedule, task }: Props) => {
                     <div css={tw`mr-6`}>
                         <div css={tw`flex items-center px-2 py-1 bg-yellow-500 text-yellow-800 text-sm rounded-full`}>
                             <Icon icon={faArrowCircleDown} css={tw`w-3 h-3 mr-2`} />
-                            Continues on Failure
+                            失敗しても続行
                         </div>
                     </div>
                 )}
@@ -120,7 +120,7 @@ export default ({ schedule, task }: Props) => {
                 <Can action={'schedule.update'}>
                     <button
                         type={'button'}
-                        aria-label={'Edit scheduled task'}
+                        aria-label={'スケジュールされたタスクを編集'}
                         css={tw`block text-sm p-2 text-neutral-500 hover:text-neutral-100 transition-colors duration-150 mr-4 ml-auto sm:ml-0`}
                         onClick={() => setIsEditing(true)}
                     >
@@ -130,7 +130,7 @@ export default ({ schedule, task }: Props) => {
                 <Can action={'schedule.update'}>
                     <button
                         type={'button'}
-                        aria-label={'Delete scheduled task'}
+                        aria-label={'スケジュールされたタスクを削除'}
                         css={tw`block text-sm p-2 text-neutral-500 hover:text-red-600 transition-colors duration-150`}
                         onClick={() => setVisible(true)}
                     >

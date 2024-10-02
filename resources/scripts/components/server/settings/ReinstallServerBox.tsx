@@ -21,7 +21,7 @@ export default () => {
                 addFlash({
                     key: 'settings',
                     type: 'success',
-                    message: 'Your server has begun the reinstallation process.',
+                    message: 'サーバーは再インストールプロセスを開始しました。',
                 });
             })
             .catch((error) => {
@@ -37,28 +37,25 @@ export default () => {
     }, []);
 
     return (
-        <TitledGreyBox title={'Reinstall Server'} css={tw`relative`}>
+        <TitledGreyBox title={'サーバーを再インストール'} css={tw`relative`}>
             <Dialog.Confirm
                 open={modalVisible}
-                title={'Confirm server reinstallation'}
-                confirm={'Yes, reinstall server'}
+                title={'サーバーの再インストールを確認'}
+                confirm={'はい、サーバーを再インストールします'}
                 onClose={() => setModalVisible(false)}
                 onConfirmed={reinstall}
             >
-                Your server will be stopped and some files may be deleted or modified during this process, are you sure
-                you wish to continue?
+                サーバーは停止し、このプロセス中に一部のファイルが削除または変更される場合があります。続行しますか？
             </Dialog.Confirm>
             <p css={tw`text-sm`}>
-                Reinstalling your server will stop it, and then re-run the installation script that initially set it
-                up.&nbsp;
+                サーバーを再インストールすると、サーバーは停止し、最初に設定されたインストールスクリプトを再実行します。&nbsp;
                 <strong css={tw`font-medium`}>
-                    Some files may be deleted or modified during this process, please back up your data before
-                    continuing.
+                    一部のファイルは、このプロセス中に削除または変更される場合があります。継続する前にデータをバックアップしてください。
                 </strong>
             </p>
             <div css={tw`mt-6 text-right`}>
                 <Button.Danger variant={Button.Variants.Secondary} onClick={() => setModalVisible(true)}>
-                    Reinstall Server
+                    サーバーを再インストール
                 </Button.Danger>
             </div>
         </TitledGreyBox>

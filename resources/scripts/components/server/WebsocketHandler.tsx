@@ -41,20 +41,20 @@ export default () => {
         socket.on('status', (status) => setServerStatus(status));
 
         socket.on('daemon error', (message) => {
-            console.warn('Got error message from daemon socket:', message);
+            console.warn('デーモンソケットからエラーメッセージが表示されました:', message);
         });
 
         socket.on('token expiring', () => updateToken(uuid, socket));
         socket.on('token expired', () => updateToken(uuid, socket));
         socket.on('jwt error', (error: string) => {
             setConnectionState(false);
-            console.warn('JWT validation error from wings:', error);
+            console.warn('WingsからのJWT検証エラー:', error);
 
             if (reconnectErrors.find((v) => error.toLowerCase().indexOf(v) >= 0)) {
                 updateToken(uuid, socket);
             } else {
                 setError(
-                    'There was an error validating the credentials provided for the websocket. Please refresh the page.'
+                    'ウェブソケットに提供された認証情報の検証でエラーが発生しました。ページを更新してください。'
                 );
             }
         });
@@ -112,7 +112,7 @@ export default () => {
                         <>
                             <Spinner size={'small'} />
                             <p css={tw`ml-2 text-sm text-red-100`}>
-                                We&apos;re having some trouble connecting to your server, please wait...
+                                サーバーへの接続に問題が発生しました...
                             </p>
                         </>
                     ) : (

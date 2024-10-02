@@ -14,7 +14,7 @@ export default ({ schedule }: { schedule: Schedule }) => (
         <div css={tw`flex-1 md:ml-4`}>
             <p>{schedule.name}</p>
             <p css={tw`text-xs text-neutral-400`}>
-                Last run at: {schedule.lastRunAt ? format(schedule.lastRunAt, "MMM do 'at' h:mma") : 'never'}
+                最後に実行: {schedule.lastRunAt ? format(schedule.lastRunAt, "MMM do 'at' h:mma") : 'never'}
             </p>
         </div>
         <div>
@@ -24,7 +24,7 @@ export default ({ schedule }: { schedule: Schedule }) => (
                     schedule.isActive ? tw`bg-green-600` : tw`bg-neutral-400`,
                 ]}
             >
-                {schedule.isActive ? 'Active' : 'Inactive'}
+                {schedule.isActive ? 'アクティブ' : '非アクティブ'}
             </p>
         </div>
         <ScheduleCronRow cron={schedule.cron} css={tw`mx-auto sm:mx-8 w-full sm:w-auto mt-4 sm:mt-0`} />
