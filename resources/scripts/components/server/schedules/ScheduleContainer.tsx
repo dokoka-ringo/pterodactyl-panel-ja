@@ -46,7 +46,7 @@ export default () => {
                 <>
                     {schedules.length === 0 ? (
                         <p css={tw`text-sm text-center text-neutral-300`}>
-                            There are no schedules configured for this server.
+                            このサーバー用に構成されたスケジュールはありません。
                         </p>
                     ) : (
                         schedules.map((schedule) => (
@@ -68,7 +68,7 @@ export default () => {
                         <div css={tw`mt-8 flex justify-end`}>
                             <EditScheduleModal visible={visible} onModalDismissed={() => setVisible(false)} />
                             <Button type={'button'} onClick={() => setVisible(true)}>
-                                Create schedule
+                                スケジュールを作成
                             </Button>
                         </div>
                     </Can>

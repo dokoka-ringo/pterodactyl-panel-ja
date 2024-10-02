@@ -96,9 +96,9 @@ const EditSubuserModal = ({ subuser }: Props) => {
             }
             validationSchema={object().shape({
                 email: string()
-                    .max(191, 'Email addresses must not exceed 191 characters.')
-                    .email('A valid email address must be provided.')
-                    .required('A valid email address must be provided.'),
+                    .max(191, 'メールアドレスは191文字を超えてはなりません。')
+                    .email('有効なメールアドレスを入力する必要があります。')
+                    .required('有効なメールアドレスを入力する必要があります。'),
                 permissions: array().of(string()),
             })}
         >
@@ -106,12 +106,12 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 <div css={tw`flex justify-between`}>
                     <h2 css={tw`text-2xl`} ref={ref}>
                         {subuser
-                            ? `${canEditUser ? 'Modify' : 'View'} permissions for ${subuser.email}`
-                            : 'Create new subuser'}
+                            ? `${canEditUser ? '編集' : 'ビュー'} ${subuser.email} の許可`
+                            : '新しいサブユーザーを作成します'}
                     </h2>
                     <div>
                         <Button type={'submit'} css={tw`w-full sm:w-auto`}>
-                            {subuser ? 'Save' : 'Invite User'}
+                            {subuser ? '保存' : 'ユーザーを招待'}
                         </Button>
                     </div>
                 </div>
@@ -119,8 +119,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 {!isRootAdmin && loggedInPermissions[0] !== '*' && (
                     <div css={tw`mt-4 pl-4 py-2 border-l-4 border-cyan-400`}>
                         <p css={tw`text-sm text-neutral-300`}>
-                            Only permissions which your account is currently assigned may be selected when creating or
-                            modifying other users.
+                            アカウントに現在割り当てられている権限のみが、他のユーザーを作成または変更するときに選択できます。
                         </p>
                     </div>
                 )}
@@ -128,9 +127,9 @@ const EditSubuserModal = ({ subuser }: Props) => {
                     <div css={tw`mt-6`}>
                         <Field
                             name={'email'}
-                            label={'User Email'}
+                            label={'ユーザーメールアドレス'}
                             description={
-                                'Enter the email address of the user you wish to invite as a subuser for this server.'
+                                'このサーバーのサブユーザーとして招待したいユーザーのメールアドレスを入力します。'
                             }
                         />
                     </div>
@@ -160,7 +159,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                 <Can action={subuser ? 'user.update' : 'user.create'}>
                     <div css={tw`pb-6 flex justify-end`}>
                         <Button type={'submit'} css={tw`w-full sm:w-auto`}>
-                            {subuser ? 'Save' : 'Invite User'}
+                            {subuser ? '保存' : 'ユーザーを招待'}
                         </Button>
                     </div>
                 </Can>

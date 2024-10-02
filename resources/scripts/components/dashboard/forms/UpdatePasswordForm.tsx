@@ -21,7 +21,7 @@ const schema = Yup.object().shape({
     password: Yup.string().min(8).required(),
     confirmPassword: Yup.string().test(
         'password',
-        'Password confirmation does not match the password you entered.',
+        'パスワードの確認は、入力したパスワードと一致しません。',
         function (value) {
             return value === this.parent.password;
         }
@@ -69,16 +69,16 @@ export default () => {
                                 id={'current_password'}
                                 type={'password'}
                                 name={'current'}
-                                label={'Current Password'}
+                                label={'現在のパスワード'}
                             />
                             <div css={tw`mt-6`}>
                                 <Field
                                     id={'new_password'}
                                     type={'password'}
                                     name={'password'}
-                                    label={'New Password'}
+                                    label={'新しいパスワード'}
                                     description={
-                                        'Your new password should be at least 8 characters in length and unique to this website.'
+                                        '新しいパスワードは、少なくとも8文字の長さで、このWebサイトに固有のものでなければなりません。'
                                     }
                                 />
                             </div>
@@ -87,11 +87,11 @@ export default () => {
                                     id={'confirm_new_password'}
                                     type={'password'}
                                     name={'confirmPassword'}
-                                    label={'Confirm New Password'}
+                                    label={'新しいパスワードを確認'}
                                 />
                             </div>
                             <div css={tw`mt-6`}>
-                                <Button disabled={isSubmitting || !isValid}>Update Password</Button>
+                                <Button disabled={isSubmitting || !isValid}>パスワードを更新</Button>
                             </div>
                         </Form>
                     </React.Fragment>

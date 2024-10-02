@@ -94,25 +94,24 @@ const EditScheduleModal = ({ schedule }: Props) => {
                     <FlashMessageRender byKey={'schedule:edit'} css={tw`mb-6`} />
                     <Field
                         name={'name'}
-                        label={'Schedule name'}
-                        description={'A human readable identifier for this schedule.'}
+                        label={'名前をスケジュールします'}
+                        description={'このスケジュールの人間の読み取り可能な識別子。'}
                     />
                     <div css={tw`grid grid-cols-2 sm:grid-cols-5 gap-4 mt-6`}>
-                        <Field name={'minute'} label={'Minute'} />
-                        <Field name={'hour'} label={'Hour'} />
-                        <Field name={'dayOfMonth'} label={'Day of month'} />
-                        <Field name={'month'} label={'Month'} />
-                        <Field name={'dayOfWeek'} label={'Day of week'} />
+                        <Field name={'minute'} label={'分'} />
+                        <Field name={'hour'} label={'時間'} />
+                        <Field name={'dayOfMonth'} label={'日'} />
+                        <Field name={'month'} label={'月'} />
+                        <Field name={'dayOfWeek'} label={'曜日'} />
                     </div>
                     <p css={tw`text-neutral-400 text-xs mt-2`}>
-                        The schedule system supports the use of Cronjob syntax when defining when tasks should begin
-                        running. Use the fields above to specify when these tasks should begin running.
+                        スケジュールシステムは、タスクがいつ実行されるかを定義するときに、Cronjob構文の使用をサポートします。上記のフィールドを使用して、これらのタスクがいつ実行を開始するかを指定します。
                     </p>
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <Switch
                             name={'show_cheatsheet'}
-                            description={'Show the cron cheatsheet for some examples.'}
-                            label={'Show Cheatsheet'}
+                            description={'いくつかの例については、Cronチートシートを表示します。'}
+                            label={'チートシートを表示します'}
                             defaultChecked={showCheatsheet}
                             onChange={() => setShowCheetsheet((s) => !s)}
                         />
@@ -125,20 +124,20 @@ const EditScheduleModal = ({ schedule }: Props) => {
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'onlyWhenOnline'}
-                            description={'Only execute this schedule when the server is in a running state.'}
-                            label={'Only When Server Is Online'}
+                            description={'サーバーが実行中の状態にある場合にのみ、このスケジュールを実行します。'}
+                            label={'サーバーがオンラインである場合にのみ'}
                         />
                     </div>
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'enabled'}
-                            description={'This schedule will be executed automatically if enabled.'}
-                            label={'Schedule Enabled'}
+                            description={'このスケジュールは、有効にすれば自動的に実行されます。'}
+                            label={'スケジュールを有効にします'}
                         />
                     </div>
                     <div css={tw`mt-6 text-right`}>
                         <Button className={'w-full sm:w-auto'} type={'submit'} disabled={isSubmitting}>
-                            {schedule ? 'Save changes' : 'Create schedule'}
+                            {schedule ? '変更を保存' : 'スケジュールを作成'}
                         </Button>
                     </div>
                 </Form>

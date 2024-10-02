@@ -36,15 +36,15 @@ const schema = object().shape({
     action: string().required().oneOf(['command', 'power', 'backup']),
     payload: string().when('action', {
         is: (v) => v !== 'backup',
-        then: string().required('A task payload must be provided.'),
+        then: string().required('タスクペイロードを提供する必要があります。'),
         otherwise: string(),
     }),
     continueOnFailure: boolean(),
     timeOffset: number()
-        .typeError('The time offset must be a valid number between 0 and 900.')
-        .required('A time offset value must be provided.')
-        .min(0, 'The time offset must be at least 0 seconds.')
-        .max(900, 'The time offset must be less than 900 seconds.'),
+        .typeError('時間オフセットは、0〜900の間の有効な数値でなければなりません。')
+        .required('時間オフセット値を提供する必要があります。')
+        .min(0, '時間オフセットは少なくとも0秒でなければなりません。')
+        .max(900, 'タイムオフセットは900秒未満でなければなりません。'),
 });
 
 const ActionListener = () => {
@@ -83,7 +83,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
         if (backupLimit === 0 && values.action === 'backup') {
             setSubmitting(false);
             addError({
-                message: "A backup task cannot be created when the server's backup limit is set to 0.",
+                message: "サーバーのバックアップ制限が0に設定されている場合、バックアップタスクを作成することはできません。",
                 key: 'schedule:task',
             });
         } else {
@@ -119,25 +119,25 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
             {({ isSubmitting, values }) => (
                 <Form css={tw`m-0`}>
                     <FlashMessageRender byKey={'schedule:task'} css={tw`mb-4`} />
-                    <h2 css={tw`text-2xl mb-6`}>{task ? 'Edit Task' : 'Create Task'}</h2>
+                    <h2 css={tw`text-2xl mb-6`}>{task ? 'タスクを編集' : 'タスクを作成'}</h2>
                     <div css={tw`flex`}>
                         <div css={tw`mr-2 w-1/3`}>
                             <Label>Action</Label>
                             <ActionListener />
                             <FormikFieldWrapper name={'action'}>
                                 <FormikField as={Select} name={'action'}>
-                                    <option value={'command'}>Send command</option>
-                                    <option value={'power'}>Send power action</option>
-                                    <option value={'backup'}>Create backup</option>
+                                    <option value={'command'}>コマンドを送信</option>
+                                    <option value={'power'}>パワーアクションを送信</option>
+                                    <option value={'backup'}>バックアップを作成</option>
                                 </FormikField>
                             </FormikFieldWrapper>
                         </div>
                         <div css={tw`flex-1 ml-6`}>
                             <Field
                                 name={'timeOffset'}
-                                label={'Time offset (in seconds)'}
+                                label={'タイムオフセット (秒単位)'}
                                 description={
-                                    'The amount of time to wait after the previous task executes before running this one. If this is the first task on a schedule this will not be applied.'
+                                    'これを実行する前に、以前のタスクが実行された後に待つ時間の時間。これがスケジュールの最初のタスクである場合、これは適用されません。'
                                 }
                             />
                         </div>
@@ -155,10 +155,10 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                                 <Label>Payload</Label>
                                 <FormikFieldWrapper name={'payload'}>
                                     <FormikField as={Select} name={'payload'}>
-                                        <option value={'start'}>Start the server</option>
-                                        <option value={'restart'}>Restart the server</option>
-                                        <option value={'stop'}>Stop the server</option>
-                                        <option value={'kill'}>Terminate the server</option>
+                                        <option value={'start'}>サーバーを起動</option>
+                                        <option value={'restart'}>サーバーを再起動</option>
+                                        <option value={'stop'}>サーバーを停止</option>
+                                        <option value={'kill'}>サーバーを終了</option>
                                     </FormikField>
                                 </FormikFieldWrapper>
                             </div>
@@ -168,7 +168,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                                 <FormikFieldWrapper
                                     name={'payload'}
                                     description={
-                                        'Optional. Include the files and folders to be excluded in this backup. By default, the contents of your .pteroignore file will be used. If you have reached your backup limit, the oldest backup will be rotated.'
+                                        'オプション。このバックアップで除外するファイルとフォルダーを含めます。デフォルトでは、.pteroignoreファイルの内容が使用されます。バックアップ制限に達した場合、最古のバックアップがローテートします。'
                                     }
                                 >
                                     <FormikField as={Textarea} name={'payload'} rows={6} />
@@ -179,13 +179,13 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'continueOnFailure'}
-                            description={'Future tasks will be run when this task fails.'}
-                            label={'Continue on Failure'}
+                            description={'このタスクが失敗すると、将来のタスクが実行されます。'}
+                            label={'失敗しても続行'}
                         />
                     </div>
                     <div css={tw`flex justify-end mt-6`}>
                         <Button type={'submit'} disabled={isSubmitting}>
-                            {task ? 'Save Changes' : 'Create Task'}
+                            {task ? '変更を保存' : 'タスクを作成'}
                         </Button>
                     </div>
                 </Form>
