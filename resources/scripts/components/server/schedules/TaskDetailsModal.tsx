@@ -152,7 +152,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                             </div>
                         ) : values.action === 'power' ? (
                             <div>
-                                <Label>Payload</Label>
+                                <Label>処理</Label>
                                 <FormikFieldWrapper name={'payload'}>
                                     <FormikField as={Select} name={'payload'}>
                                         <option value={'start'}>サーバーを起動</option>
@@ -164,7 +164,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                             </div>
                         ) : (
                             <div>
-                                <Label>Ignored Files</Label>
+                                <Label>除外するファイル</Label>
                                 <FormikFieldWrapper
                                     name={'payload'}
                                     description={

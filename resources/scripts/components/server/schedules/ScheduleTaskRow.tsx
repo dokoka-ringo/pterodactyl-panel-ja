@@ -82,7 +82,7 @@ export default ({ schedule, task }: Props) => {
                 visible={visible}
                 onModalDismissed={() => setVisible(false)}
             >
-                Are you sure you want to delete this task? This action cannot be undone.
+                このタスクを削除してもよろしいですか？この操作は元に戻せません。
             </ConfirmationModal>
             <FontAwesomeIcon icon={icon} css={tw`text-lg text-white hidden md:block`} />
             <div css={tw`flex-none sm:flex-1 w-full sm:w-auto overflow-x-auto`}>

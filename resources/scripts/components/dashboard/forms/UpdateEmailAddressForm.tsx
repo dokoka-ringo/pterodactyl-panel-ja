@@ -16,7 +16,7 @@ interface Values {
 
 const schema = Yup.object().shape({
     email: Yup.string().email().required(),
-    password: Yup.string().required('現在のアカウントパスワードを提供する必要があります。'),
+    password: Yup.string().required('現在のアカウントパスワードを入力する必要があります。'),
 });
 
 export default () => {
@@ -56,13 +56,13 @@ export default () => {
                 <React.Fragment>
                     <SpinnerOverlay size={'large'} visible={isSubmitting} />
                     <Form css={tw`m-0`}>
-                        <Field id={'current_email'} type={'email'} name={'email'} label={'Email'} />
+                        <Field id={'current_email'} type={'email'} name={'email'} label={'メールアドレス'} />
                         <div css={tw`mt-6`}>
                             <Field
                                 id={'confirm_password'}
                                 type={'password'}
                                 name={'password'}
-                                label={'パスワードを認証する'}
+                                label={'パスワードを確認'}
                             />
                         </div>
                         <div css={tw`mt-6`}>

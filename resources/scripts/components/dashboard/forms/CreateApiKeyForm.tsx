@@ -70,7 +70,7 @@ export default ({ onKeyCreated }: { onKeyCreated: (key: ApiKey) => void }) => {
                             label={'許可されたIPアドレス'}
                             name={'allowedIps'}
                             description={
-                                '空白のままにして、IPアドレスがこのAPIキーを使用できるようにします。そうしないと、新しい行に各IPアドレスを提供します。'
+                                '任意のIPアドレスにこのAPIキーの使用を許可する場合は空白のままにし、そうでない場合は新しい行に各IPアドレスを記述します。'
                             }
                         >
                             <Field name={'allowedIps'} as={CustomTextarea} />

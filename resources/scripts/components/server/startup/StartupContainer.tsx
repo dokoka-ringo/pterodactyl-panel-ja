@@ -107,7 +107,7 @@ const StartupContainer = () => {
                                 </Select>
                             </InputSpinner>
                             <p css={tw`text-xs text-neutral-300 mt-2`}>
-                                これは、このサーバーインスタンスを実行するときに使用するDockerイメージを選択できる高度な機能です。
+                                このサーバーインスタンスの実行に使用するDockerイメージを選択できる高度な機能です。
                             </p>
                         </>
                     ) : (
