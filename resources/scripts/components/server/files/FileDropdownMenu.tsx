@@ -132,12 +132,12 @@ const FileDropdownMenu = ({ file }: { file: FileObject }) => {
             <Dialog.Confirm
                 open={showConfirmation}
                 onClose={() => setShowConfirmation(false)}
-                title={`Delete ${file.isFile ? 'File' : 'Directory'}`}
-                confirm={'Delete'}
+                title={`${file.isFile ? 'ファイル' : 'ディレクトリを削除'}`}
+                confirm={'削除'}
                 onConfirmed={doDeletion}
             >
-                You will not be able to recover the contents of&nbsp;
-                <span className={'font-semibold text-gray-50'}>{file.name}</span> once deleted.
+                一度削除された&nbsp;
+                <span className={'font-semibold text-gray-50'}>{file.name}</span> の内容は復元できません。
             </Dialog.Confirm>
             <DropdownMenu
                 ref={onClickRef}

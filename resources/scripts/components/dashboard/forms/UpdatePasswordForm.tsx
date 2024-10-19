@@ -17,7 +17,7 @@ interface Values {
 }
 
 const schema = Yup.object().shape({
-    current: Yup.string().min(1).required('You must provide your current password.'),
+    current: Yup.string().min(1).required('現在のパスワードを入力してください。'),
     password: Yup.string().min(8).required(),
     confirmPassword: Yup.string().test(
         'password',
@@ -78,7 +78,7 @@ export default () => {
                                     name={'password'}
                                     label={'新しいパスワード'}
                                     description={
-                                        '新しいパスワードは、少なくとも8文字の長さで、このWebサイトに固有のものでなければなりません。'
+                                        '新しいパスワードは、少なくとも8文字以上の長さで、このWebサイトに固有のものでなければなりません。'
                                     }
                                 />
                             </div>

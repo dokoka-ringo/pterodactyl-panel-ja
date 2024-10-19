@@ -55,7 +55,7 @@ const DisableTOTPDialog = () => {
                 <Tooltip
                     delay={100}
                     disabled={password.length > 0}
-                    content={'You must enter your account password to continue.'}
+                    content={'続行するには、アカウントのパスワードを入力する必要があります。'}
                 >
                     <Button.Danger type={'submit'} form={'disable-totp-form'} disabled={submitting || !password.length}>
                         無効にします
@@ -67,6 +67,6 @@ const DisableTOTPDialog = () => {
 };
 
 export default asDialog({
-    title: 'Disable Two-Step Verification',
-    description: 'Disabling two-step verification will make your account less secure.',
+    title: '二段階認証の無効化',
+    description: '二段階認証を無効にすると、アカウントの安全性が低下します。',
 })(DisableTOTPDialog);

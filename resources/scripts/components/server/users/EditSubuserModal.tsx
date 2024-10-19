@@ -107,7 +107,7 @@ const EditSubuserModal = ({ subuser }: Props) => {
                     <h2 css={tw`text-2xl`} ref={ref}>
                         {subuser
                             ? `${canEditUser ? '編集' : 'ビュー'} ${subuser.email} の許可`
-                            : '新しいサブユーザーを作成します'}
+                            : '新しいサブユーザーを作成'}
                     </h2>
                     <div>
                         <Button type={'submit'} css={tw`w-full sm:w-auto`}>
