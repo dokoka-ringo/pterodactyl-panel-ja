@@ -69,7 +69,7 @@ const RenameFileModal = ({ files, useMoveTerminology, ...props }: OwnProps) => {
                                     label={'ファイル名'}
                                     description={
                                         useMoveTerminology
-                                            ? '現在のディレクトリに比べて、このファイルまたはフォルダーの新しい名前とディレクトリを入力します。'
+                                            ? 'このファイルまたはフォルダの新しい名前とディレクトリを、現在のディレクトリからの相対パスで入力します。'
                                             : undefined
                                     }
                                     autoFocus

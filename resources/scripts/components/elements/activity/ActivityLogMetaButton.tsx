@@ -17,7 +17,7 @@ export default ({ meta }: { meta: Record<string, unknown> }) => {
                     {JSON.stringify(meta, null, 2)}
                 </pre>
                 <Dialog.Footer>
-                    <Button.Text onClick={() => setOpen(false)}>Close</Button.Text>
+                    <Button.Text onClick={() => setOpen(false)}>閉じる</Button.Text>
                 </Dialog.Footer>
             </Dialog>
             <button

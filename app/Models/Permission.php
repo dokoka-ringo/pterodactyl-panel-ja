@@ -100,110 +100,110 @@ class Permission extends Model
      */
     protected static array $permissions = [
         'websocket' => [
-            'description' => 'Allows the user to connect to the server websocket, giving them access to view console output and realtime server stats.',
+            'description' => 'ユーザーがサーバーのウェブソケットに接続できるようにし、コンソール出力やリアルタイムのサーバー統計情報を表示できるようにします。',
             'keys' => [
-                'connect' => 'Allows a user to connect to the websocket instance for a server to stream the console.',
+                'connect' => 'コンソールをストリーミングするために、ユーザーがサーバーのウェブソケットインスタンスに接続できるようにします。',
             ],
         ],
 
         'control' => [
-            'description' => 'Permissions that control a user\'s ability to control the power state of a server, or send commands.',
+            'description' => 'サーバーの電源状態を制御したり、コマンドを送信したりするユーザーの能力を制御する権限。',
             'keys' => [
-                'console' => 'Allows a user to send commands to the server instance via the console.',
-                'start' => 'Allows a user to start the server if it is stopped.',
-                'stop' => 'Allows a user to stop a server if it is running.',
-                'restart' => 'Allows a user to perform a server restart. This allows them to start the server if it is offline, but not put the server in a completely stopped state.',
+                'console' => 'ユーザがコンソールを介してサーバインスタンスにコマンドを送信できるようにする。',
+                'start' => 'サーバーが停止している場合に、ユーザーがサーバーを起動できるようにする。',
+                'stop' => '実行中のサーバーを停止できるようにする。',
+                'restart' => 'ユーザーがサーバーの再起動を実行できるようにする。これにより、サーバーがオフラインの場合にサーバーを起動することができますが、サーバーを完全に停止した状態にはできません。',
             ],
         ],
 
         'user' => [
-            'description' => 'Permissions that allow a user to manage other subusers on a server. They will never be able to edit their own account, or assign permissions they do not have themselves.',
+            'description' => 'ユーザがサーバ上の他のサブユーザを管理できるようにする権限。自分自身のアカウントを編集したり、自分自身が持っていない権限を割り当てたりすることは決してできません。',
             'keys' => [
-                'create' => 'Allows a user to create new subusers for the server.',
-                'read' => 'Allows the user to view subusers and their permissions for the server.',
-                'update' => 'Allows a user to modify other subusers.',
-                'delete' => 'Allows a user to delete a subuser from the server.',
+                'create' => 'ユーザーがサーバーに新しいサブユーザーを作成できるようにします。',
+                'read' => 'ユーザーがサーバーのサブューザーとその権限を表示できるようにします。',
+                'update' => 'ユーザーが他のサブユーザーを変更できるようにします。',
+                'delete' => 'ユーザーがサーバーからサブユーザーを削除できるようにします。',
             ],
         ],
 
         'file' => [
-            'description' => 'Permissions that control a user\'s ability to modify the filesystem for this server.',
+            'description' => 'このサーバーのファイルシステムを変更するユーザーの能力を制御するパーミッション。',
             'keys' => [
-                'create' => 'Allows a user to create additional files and folders via the Panel or direct upload.',
-                'read' => 'Allows a user to view the contents of a directory, but not view the contents of or download files.',
-                'read-content' => 'Allows a user to view the contents of a given file. This will also allow the user to download files.',
-                'update' => 'Allows a user to update the contents of an existing file or directory.',
-                'delete' => 'Allows a user to delete files or directories.',
-                'archive' => 'Allows a user to archive the contents of a directory as well as decompress existing archives on the system.',
-                'sftp' => 'Allows a user to connect to SFTP and manage server files using the other assigned file permissions.',
+                'create' => 'ユーザーは、パネルを介して追加のファイルとフォルダーを作成するか、直接アップロードできます。',
+                'read' => 'ユーザーはディレクトリの内容を表示できますが、ファイルの内容を表示したり、ファイルをダウンロードしたりできません。',
+                'read-content' => 'ユーザーが特定のファイルの内容を表示できるようにします。これにより、ユーザーはファイルをダウンロードできます。',
+                'update' => 'ユーザーは、既存のファイルまたはディレクトリのコンテンツを更新できます。',
+                'delete' => 'ユーザーがファイルまたはディレクトリを削除できるようにします。',
+                'archive' => 'ユーザがディレクトリの内容をアーカイブしたり、システム上の既存のアーカイブを解凍したりできるようにする。',
+                'sftp' => 'ユーザーがSFTPに接続し、他の割り当てられたファイルパーミッションを使用してサーバーファイルを管理できるようにします。',
             ],
         ],
 
         'backup' => [
-            'description' => 'Permissions that control a user\'s ability to generate and manage server backups.',
+            'description' => 'サーバーのバックアップを生成および管理するユーザーの能力を制御する権限。',
             'keys' => [
-                'create' => 'Allows a user to create new backups for this server.',
-                'read' => 'Allows a user to view all backups that exist for this server.',
-                'delete' => 'Allows a user to remove backups from the system.',
-                'download' => 'Allows a user to download a backup for the server. Danger: this allows a user to access all files for the server in the backup.',
-                'restore' => 'Allows a user to restore a backup for the server. Danger: this allows the user to delete all of the server files in the process.',
+                'create' => 'ユーザーはこのサーバーの新しいバックアップを作成できます。',
+                'read' => 'ユーザーは、このサーバーに存在するすべてのバックアップを表示できます。',
+                'delete' => 'ユーザーがシステムからバックアップを削除できるようにします。',
+                'download' => 'ユーザーがサーバーのバックアップをダウンロードできるようにします。危険： バックアップ内のサーバーのすべてのファイルにアクセスできます。',
+                'restore' => 'ユーザーがサーバーのバックアップを復元できるようにします。危険：この処理では、サーバーのファイルをすべて削除することができます。',
             ],
         ],
 
         // Controls permissions for editing or viewing a server's allocations.
         'allocation' => [
-            'description' => 'Permissions that control a user\'s ability to modify the port allocations for this server.',
+            'description' => 'このサーバーのポート割り当てを変更するユーザーの能力を制御する権限。',
             'keys' => [
-                'read' => 'Allows a user to view all allocations currently assigned to this server. Users with any level of access to this server can always view the primary allocation.',
-                'create' => 'Allows a user to assign additional allocations to the server.',
-                'update' => 'Allows a user to change the primary server allocation and attach notes to each allocation.',
-                'delete' => 'Allows a user to delete an allocation from the server.',
+                'read' => 'このサーバーに現在割り当てられているすべての割り当てを表示できます。このサーバーへのアクセス レベルに関係なく、ユーザーは常にプライマリ割り当てを表示できます。',
+                'create' => 'ユーザーが追加の割り当てをサーバーに割り当てることができます。',
+                'update' => 'プライマリサーバーの割り当てを変更し、各割り当てにメモを添付することができます。',
+                'delete' => 'ユーザーがサーバーから割り当てを削除できるようにします。',
             ],
         ],
 
         // Controls permissions for editing or viewing a server's startup parameters.
         'startup' => [
-            'description' => 'Permissions that control a user\'s ability to view this server\'s startup parameters.',
+            'description' => 'このサーバーの起動パラメータを表示するユーザーを制御する権限。',
             'keys' => [
-                'read' => 'Allows a user to view the startup variables for a server.',
-                'update' => 'Allows a user to modify the startup variables for the server.',
-                'docker-image' => 'Allows a user to modify the Docker image used when running the server.',
+                'read' => 'ユーザーはサーバーのスタートアップ変数を表示できます。',
+                'update' => 'ユーザーは、サーバーのスタートアップ変数を変更できます。',
+                'docker-image' => 'ユーザーは、サーバーを実行するときに使用されるDockerイメージを変更できます。',
             ],
         ],
 
         'database' => [
-            'description' => 'Permissions that control a user\'s access to the database management for this server.',
+            'description' => 'このサーバのデータベース管理へのユーザのアクセスを制御する権限。',
             'keys' => [
-                'create' => 'Allows a user to create a new database for this server.',
-                'read' => 'Allows a user to view the database associated with this server.',
-                'update' => 'Allows a user to rotate the password on a database instance. If the user does not have the view_password permission they will not see the updated password.',
-                'delete' => 'Allows a user to remove a database instance from this server.',
-                'view_password' => 'Allows a user to view the password associated with a database instance for this server.',
+                'create' => 'ユーザーはこのサーバーの新しいデータベースを作成できます。',
+                'read' => 'ユーザーは、このサーバーに関連付けられているデータベースを表示できます。',
+                'update' => 'ユーザがデータベース・インスタンスのパスワードを変更できるようにします。ユーザが view_password 権限を持っていない場合、更新されたパスワードは表示されません。',
+                'delete' => 'ユーザーがこのサーバーからデータベースインスタンスを削除できるようにします。',
+                'view_password' => 'ユーザーは、このサーバーのデータベースインスタンスに関連付けられたパスワードを表示できます。',
             ],
         ],
 
         'schedule' => [
-            'description' => 'Permissions that control a user\'s access to the schedule management for this server.',
+            'description' => 'このサーバーのスケジュール管理へのユーザーのアクセスを制御する権限。',
             'keys' => [
-                'create' => 'Allows a user to create new schedules for this server.', // task.create-schedule
-                'read' => 'Allows a user to view schedules and the tasks associated with them for this server.', // task.view-schedule, task.list-schedules
-                'update' => 'Allows a user to update schedules and schedule tasks for this server.', // task.edit-schedule, task.queue-schedule, task.toggle-schedule
-                'delete' => 'Allows a user to delete schedules for this server.', // task.delete-schedule
+                'create' => 'ユーザーはこのサーバーの新しいスケジュールを作成できます。', // task.create-schedule
+                'read' => 'Aこのサーバーのスケジュールとそれに関連するタスクを表示します。', // task.view-schedule, task.list-schedules
+                'update' => 'ユーザーは、このサーバーのスケジュールを更新し、タスクをスケジュールすることができます。', // task.edit-schedule, task.queue-schedule, task.toggle-schedule
+                'delete' => 'ユーザーがこのサーバーのスケジュールを削除できるようにします。', // task.delete-schedule
             ],
         ],
 
         'settings' => [
-            'description' => 'Permissions that control a user\'s access to the settings for this server.',
+            'description' => 'ユーザがこのサーバの設定にアクセスすることを制御する権限。',
             'keys' => [
-                'rename' => 'Allows a user to rename this server and change the description of it.',
-                'reinstall' => 'Allows a user to trigger a reinstall of this server.',
+                'rename' => 'ユーザーがこのサーバーの名前を変更したり、説明を変更したりできるようにします。',
+                'reinstall' => 'ユーザーがこのサーバーの再インストールを起動できるようにします。',
             ],
         ],
 
         'activity' => [
-            'description' => 'Permissions that control a user\'s access to the server activity logs.',
+            'description' => 'ユーザーのサーバーアクティビティログへのアクセスを制御する権限。',
             'keys' => [
-                'read' => 'Allows a user to view the activity logs for the server.',
+                'read' => 'ユーザーはサーバーのアクティビティログを表示できます。',
             ],
         ],
     ];

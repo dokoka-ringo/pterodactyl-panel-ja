@@ -36,7 +36,7 @@ const ActivePill = ({ active }: { active: boolean }) => (
             active ? tw`bg-green-600 text-green-100` : tw`bg-red-600 text-red-100`,
         ]}
     >
-        {active ? 'Active' : 'Inactive'}
+        {active ? '有効' : '無効'}
     </span>
 );
 
@@ -111,7 +111,7 @@ export default () => {
                                         <span css={tw`text-neutral-300`}>n/a</span>
                                     )}
                                     <span css={tw`ml-4 pl-4 border-l-4 border-neutral-600 py-px`}>
-                                        Next run at:&nbsp;
+                                        次の実行:&nbsp;
                                         {schedule.nextRunAt ? (
                                             format(schedule.nextRunAt, "MMM do 'at' h:mma")
                                         ) : (

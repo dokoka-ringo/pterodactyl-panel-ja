@@ -90,12 +90,12 @@ const EditScheduleModal = ({ schedule }: Props) => {
         >
             {({ isSubmitting }) => (
                 <Form>
-                    <h3 css={tw`text-2xl mb-6`}>{schedule ? 'Edit schedule' : 'Create new schedule'}</h3>
+                    <h3 css={tw`text-2xl mb-6`}>{schedule ? 'スケジュールを編集' : '新しいスケジュールを作成'}</h3>
                     <FlashMessageRender byKey={'schedule:edit'} css={tw`mb-6`} />
                     <Field
                         name={'name'}
-                        label={'名前をスケジュールします'}
-                        description={'このスケジュールの人間の読み取り可能な識別子。'}
+                        label={'スケジュール名'}
+                        description={'このスケジュールの人間が読み取り可能な名前。'}
                     />
                     <div css={tw`grid grid-cols-2 sm:grid-cols-5 gap-4 mt-6`}>
                         <Field name={'minute'} label={'分'} />
@@ -125,13 +125,13 @@ const EditScheduleModal = ({ schedule }: Props) => {
                         <FormikSwitch
                             name={'onlyWhenOnline'}
                             description={'サーバーが実行中の状態にある場合にのみ、このスケジュールを実行します。'}
-                            label={'サーバーがオンラインである場合にのみ'}
+                            label={'サーバーがオンラインの場合のみ'}
                         />
                     </div>
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'enabled'}
-                            description={'このスケジュールは、有効にすれば自動的に実行されます。'}
+                            description={'このスケジュールは、有効になっている場合自動的に実行されます。'}
                             label={'スケジュールを有効にします'}
                         />
                     </div>

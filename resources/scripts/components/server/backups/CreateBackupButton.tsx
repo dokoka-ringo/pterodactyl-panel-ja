@@ -28,11 +28,11 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
         <Modal {...props} showSpinnerOverlay={isSubmitting}>
             <Form>
                 <FlashMessageRender byKey={'backups:create'} css={tw`mb-4`} />
-                <h2 css={tw`text-2xl mb-6`}>Create server backup</h2>
+                <h2 css={tw`text-2xl mb-6`}>サーバーのバックアップを作成</h2>
                 <Field
                     name={'name'}
                     label={'バックアップ名'}
-                    description={'提供されている場合、このバックアップを参照するために使用する必要がある名前。'}
+                    description={'このバックアップを参照するために使用する名前。'}
                 />
                 <div css={tw`mt-6`}>
                     <FormikFieldWrapper
@@ -58,7 +58,7 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
                 </Can>
                 <div css={tw`flex justify-end mt-6`}>
                     <Button type={'submit'} disabled={isSubmitting}>
-                        Start backup
+                        バックアップを開始
                     </Button>
                 </div>
             </Form>
@@ -108,7 +108,7 @@ export default () => {
                 </Formik>
             )}
             <Button css={tw`w-full sm:w-auto`} onClick={() => setVisible(true)}>
-                Create backup
+                バックアップを作成
             </Button>
         </>
     );
