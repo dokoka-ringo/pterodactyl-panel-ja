@@ -76,7 +76,7 @@ export default ({ schedule, task }: Props) => {
                 onModalDismissed={() => setIsEditing(false)}
             />
             <ConfirmationModal
-                title={'タスクの削除を確認'}
+                title={'本当にタスクを削除しますか？'}
                 buttonText={'タスクを削除'}
                 onConfirmed={onConfirmDeletion}
                 visible={visible}

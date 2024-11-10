@@ -198,7 +198,7 @@ export default ({ backup }: Props) => {
                                 {!backup.isLocked && (
                                     <DropdownButtonRow danger onClick={() => setModal('delete')}>
                                         <FontAwesomeIcon fixedWidth icon={faTrashAlt} css={tw`text-xs`} />
-                                        <span css={tw`ml-2`}>Delete</span>
+                                        <span css={tw`ml-2`}>削除</span>
                                     </DropdownButtonRow>
                                 )}
                             </>
