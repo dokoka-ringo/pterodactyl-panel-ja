@@ -3,6 +3,17 @@ This file is a running track of new features and fixes to each version of the pa
 
 This project follows [Semantic Versioning](http://semver.org) guidelines.
 
+## v1.11.9_ja
+
+### 追加
+
+* 電源状態が日本語で表示されるようになりました。
+* ログの日本語化を行いました。
+
+### 修正
+
+* 翻訳の修正を行いました。
+
 ## v1.11.9
 
 ### Fixed
