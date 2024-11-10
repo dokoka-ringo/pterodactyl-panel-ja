@@ -10,6 +10,7 @@ import { useFlashKey } from '@/plugins/useFlash';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faKey } from '@fortawesome/free-solid-svg-icons';
 import { format } from 'date-fns';
+import ja from 'date-fns/locale/ja';
 import CreateSSHKeyForm from '@/components/dashboard/ssh/CreateSSHKeyForm';
 import DeleteSSHKeyButton from '@/components/dashboard/ssh/DeleteSSHKeyButton';
 
@@ -49,7 +50,7 @@ export default () => {
                                     <p css={tw`text-xs mt-1 font-mono truncate`}>SHA256:{key.fingerprint}</p>
                                     <p css={tw`text-xs mt-1 text-neutral-300 uppercase`}>
                                         Added on:&nbsp;
-                                        {format(key.createdAt, 'MMM do, yyyy HH:mm')}
+                                        {format(key.createdAt, 'yyyy/MM/dd HH:mm', { locale: ja })}
                                     </p>
                                 </div>
                                 <DeleteSSHKeyButton name={key.name} fingerprint={key.fingerprint} />
