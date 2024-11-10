@@ -39,5 +39,5 @@ class AddedToServer extends Notification implements ShouldQueue
             ->line('あなたは以下のサーバーのサブユーザーとして追加され、サーバーに対する一定のコントロールができるようになりました。')
             ->line('サーバー名: ' . $this->server->name)
             ->action('サーバーにアクセス', url('/server/' . $this->server->uuidShort));
-}
+    }
 }
