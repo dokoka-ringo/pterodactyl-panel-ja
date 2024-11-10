@@ -100,6 +100,12 @@ const ServerDetailsBlock = ({ className }: { className?: string }) => {
             >
                 {status === null ? (
                     'オフライン'
+                ) : status === 'offline' ? (
+                    'オフライン'
+                ) : status === 'starting' ? (
+                    '起動中'
+                ) : status === 'stopping' ? (
+                    '停止中'
                 ) : stats.uptime > 0 ? (
                     <UptimeDuration uptime={stats.uptime / 1000} />
                 ) : (
