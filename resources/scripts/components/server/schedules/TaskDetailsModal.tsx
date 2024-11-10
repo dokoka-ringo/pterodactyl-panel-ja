@@ -36,15 +36,15 @@ const schema = object().shape({
     action: string().required().oneOf(['command', 'power', 'backup']),
     payload: string().when('action', {
         is: (v) => v !== 'backup',
-        then: string().required('タスクペイロードを提供する必要があります。'),
+        then: string().required('コマンドを入力してください。'),
         otherwise: string(),
     }),
     continueOnFailure: boolean(),
     timeOffset: number()
-        .typeError('時間オフセットは、0〜900の間の有効な数値でなければなりません。')
-        .required('時間オフセット値を提供する必要があります。')
-        .min(0, '時間オフセットは少なくとも0秒でなければなりません。')
-        .max(900, 'タイムオフセットは900秒未満でなければなりません。'),
+        .typeError('待機時間は、0〜900の間の有効な数値でなければなりません。')
+        .required('待機時間を提供する必要があります。')
+        .min(0, '待機時間は少なくとも0秒でなければなりません。')
+        .max(900, '待機時間は900秒未満でなければなりません。'),
 });
 
 const ActionListener = () => {
@@ -122,7 +122,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <h2 css={tw`text-2xl mb-6`}>{task ? 'タスクを編集' : 'タスクを作成'}</h2>
                     <div css={tw`flex`}>
                         <div css={tw`mr-2 w-1/3`}>
-                            <Label>Action</Label>
+                            <Label>タスクの種類</Label>
                             <ActionListener />
                             <FormikFieldWrapper name={'action'}>
                                 <FormikField as={Select} name={'action'}>
@@ -135,9 +135,9 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                         <div css={tw`flex-1 ml-6`}>
                             <Field
                                 name={'timeOffset'}
-                                label={'タイムオフセット (秒単位)'}
+                                label={'待機時間 (秒単位)'}
                                 description={
-                                    'これを実行する前に、以前のタスクが実行された後に待つ時間の時間。これがスケジュールの最初のタスクである場合、これは適用されません。'
+                                    'このタスクより前のタスクが実行された後に待機する時間。このスケジュールの最初のタスクである場合、待機時間は適用されません。'
                                 }
                             />
                         </div>
@@ -145,14 +145,14 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <div css={tw`mt-6`}>
                         {values.action === 'command' ? (
                             <div>
-                                <Label>Payload</Label>
+                                <Label>送信するコマンド</Label>
                                 <FormikFieldWrapper name={'payload'}>
                                     <FormikField as={Textarea} name={'payload'} rows={6} />
                                 </FormikFieldWrapper>
                             </div>
                         ) : values.action === 'power' ? (
                             <div>
-                                <Label>処理</Label>
+                                <Label>操作</Label>
                                 <FormikFieldWrapper name={'payload'}>
                                     <FormikField as={Select} name={'payload'}>
                                         <option value={'start'}>サーバーを起動</option>
@@ -168,7 +168,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                                 <FormikFieldWrapper
                                     name={'payload'}
                                     description={
-                                        'オプション。このバックアップで除外するファイルとフォルダーを含めます。デフォルトでは、.pteroignoreファイルの内容が使用されます。バックアップ制限に達した場合、最古のバックアップがローテートします。'
+                                        'これはオプションです。このバックアップで除外するファイルとフォルダーを入力してください。通常は.pteroignoreファイルの内容が使用されます。バックアップ制限に達した場合、最古のバックアップを削除し、新たなバックアップを作成します。'
                                     }
                                 >
                                     <FormikField as={Textarea} name={'payload'} rows={6} />
@@ -179,7 +179,7 @@ const TaskDetailsModal = ({ schedule, task }: Props) => {
                     <div css={tw`mt-6 bg-neutral-700 border border-neutral-800 shadow-inner p-4 rounded`}>
                         <FormikSwitch
                             name={'continueOnFailure'}
-                            description={'このタスクが失敗すると、将来のタスクが実行されます。'}
+                            description={'このタスクが失敗しても、次のタスクが実行されます。'}
                             label={'失敗しても続行'}
                         />
                     </div>

@@ -41,8 +41,8 @@ export default ({ scheduleId, onDeleted }: Props) => {
             <Dialog.Confirm
                 open={visible}
                 onClose={() => setVisible(false)}
-                title={'Delete Schedule'}
-                confirm={'Delete'}
+                title={'スケジュールを削除'}
+                confirm={'削除'}
                 onConfirmed={onDelete}
             >
                 <SpinnerOverlay visible={isLoading} />
