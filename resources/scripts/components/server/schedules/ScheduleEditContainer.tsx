@@ -109,7 +109,7 @@ export default () => {
                                     {schedule.lastRunAt ? (
                                         format(schedule.lastRunAt, "MMMMdo HH:mm", { locale: ja })
                                     ) : (
-                                        <span css={tw`text-neutral-300`}>n/a</span>
+                                        <span css={tw`text-neutral-300`}>なし</span>
                                     )}
                                     <span css={tw`ml-4 pl-4 border-l-4 border-neutral-600 py-px`}>
                                         次の実行:&nbsp;
