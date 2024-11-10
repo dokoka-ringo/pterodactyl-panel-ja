@@ -15,6 +15,7 @@ import { Button } from '@/components/elements/button/index';
 import ScheduleTaskRow from '@/components/server/schedules/ScheduleTaskRow';
 import isEqual from 'react-fast-compare';
 import { format } from 'date-fns';
+import ja from 'date-fns/locale/ja';
 import ScheduleCronRow from '@/components/server/schedules/ScheduleCronRow';
 import RunScheduleButton from '@/components/server/schedules/RunScheduleButton';
 
@@ -106,14 +107,14 @@ export default () => {
                                 <p css={tw`mt-1 text-sm text-neutral-200`}>
                                     最後に実行:&nbsp;
                                     {schedule.lastRunAt ? (
-                                        format(schedule.lastRunAt, "MMM do 'at' h:mma")
+                                        format(schedule.lastRunAt, "MMMMdo HH:mm", { locale: ja })
                                     ) : (
                                         <span css={tw`text-neutral-300`}>n/a</span>
                                     )}
                                     <span css={tw`ml-4 pl-4 border-l-4 border-neutral-600 py-px`}>
                                         次の実行:&nbsp;
                                         {schedule.nextRunAt ? (
-                                            format(schedule.nextRunAt, "MMM do 'at' h:mma")
+                                            format(schedule.nextRunAt, "MMMMdo HH:mm", { locale: ja })
                                         ) : (
                                             <span css={tw`text-neutral-300`}>n/a</span>
                                         )}
