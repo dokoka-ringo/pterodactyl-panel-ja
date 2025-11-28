@@ -35,6 +35,7 @@ class RemovedFromServer extends Notification implements ShouldQueue
     public function toMail(): MailMessage
     {
         return (new MailMessage())
+            ->subject('サーバーから削除されました')
             ->error()
             ->greeting('こんにちは ' . $this->server->user . '.')
             ->line('あなたは以下のサーバーのサブユーザーから削除されました。')

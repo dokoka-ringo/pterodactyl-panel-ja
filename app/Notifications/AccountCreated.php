@@ -33,7 +33,8 @@ class AccountCreated extends Notification implements ShouldQueue
     public function toMail(): MailMessage
     {
         $message = (new MailMessage())
-            ->greeting('こんにちは ' . $this->user->name . '!')
+            ->subject('アカウントが作成されました')
+            ->greeting('こんにちは ' . $this->user->name . 'さん！')
             ->line(config('app.name') . 'のアカウントが作成されたため、このメールを受信しています。')
             ->line('ユーザー名: ' . $this->user->username)
             ->line('メールアドレス: ' . $this->user->email);

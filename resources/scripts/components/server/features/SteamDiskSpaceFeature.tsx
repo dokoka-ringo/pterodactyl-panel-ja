@@ -53,7 +53,7 @@ const SteamDiskSpaceFeature = () => {
                         <h2 css={tw`text-2xl mb-4 text-neutral-100 `}>利用可能なディスク容量が不足しています...</h2>
                     </div>
                     <p css={tw`mt-4`}>
-                        このサーバーには、使用可能なディスクスペースがなくなり、インストールまたは更新プロセスを完了できません。
+                        このサーバーには使用可能なディスクスペースがないため、インストールまたは更新プロセスを完了できません。
                     </p>
                     <p css={tw`mt-4`}>
                         このサーバーをホストしているマシンで {' '} <code css={tw`font-mono bg-neutral-900 rounded py-1 px-2`}>df -h</code> と入力して、マシンに十分なディスク容量があることを確認します。
@@ -71,7 +71,7 @@ const SteamDiskSpaceFeature = () => {
                         <h2 css={tw`text-2xl mb-4 text-neutral-100`}>Out of available disk space...</h2>
                     </div>
                     <p css={tw`mt-4`}>
-                        このサーバーには、使用可能なディスクスペースがなくなり、インストールまたは更新プロセスを完了できません。管理者に連絡して、ディスクスペースの問題を通知してください。
+                        このサーバーには使用可能なディスクスペースがないため、インストールまたは更新プロセスを完了できません。管理者に連絡して、ディスクスペースの問題を通知してください。
                     </p>
                     <div css={tw`mt-8 sm:flex items-center justify-end`}>
                         <Button onClick={() => setVisible(false)} css={tw`w-full sm:w-auto border-transparent`}>
