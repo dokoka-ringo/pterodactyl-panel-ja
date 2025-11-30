@@ -3,6 +3,15 @@ This file is a running track of new features and fixes to each version of the pa
 
 This project follows [Semantic Versioning](http://semver.org) guidelines.
 
+## v1.11.11_ja
+
+### 修正
+
+* CVE-2025-49132を修正しました
+
+### 追加
+管理エリアの翻訳を追加しました
+
 ## v1.11.11
 
 ### Fixed
