@@ -44,7 +44,7 @@ class VariableValidatorServiceTest extends IntegrationTestCase
             $this->assertArrayHasKey('environment.BUNGEE_VERSION', $errors);
             $this->assertArrayHasKey('environment.SERVER_JARFILE', $errors);
             $this->assertSame('Bungeecord Version 変数 には文字と数字のみを含めることができます。', $errors['environment.BUNGEE_VERSION'][0]);
-            $this->assertSame('Bungeecord Jar File variable フィールドは必須です。', $errors['environment.SERVER_JARFILE'][0]);
+            $this->assertSame('Bungeecord Jar File 変数 フィールドは必須です。', $errors['environment.SERVER_JARFILE'][0]);
         }
 
         $response = $this->getService()->handle($egg->id, [

@@ -141,7 +141,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
         ])
             ->assertUnprocessable()
             ->assertJsonPath('errors.0.meta.rule', 'max')
-            ->assertJsonPath('errors.0.detail', 'The description may not be greater than 500 characters.');
+            ->assertJsonPath('errors.0.detail', 'description は 500 文字を超えることはできません。');
 
         $this->postJson('/api/client/account/api-keys', [
             'description' => 'Foobar',
