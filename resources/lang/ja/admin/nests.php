@@ -10,7 +10,7 @@ return [
         'notices' => [
             'imported' => 'Eggと関連する変数をインポートしました。',
             'updated_via_import' => 'このEggはファイルによって更新されました。',
-            'deleted' => 'PanelからこのEggを削除しました。',
+            'deleted' => 'パネルからこのEggを削除しました。',
             'updated' => 'Eggの構成が正常に更新されました。',
             'script_updated' => 'Eggインストールスクリプトが更新され、サーバー作成時に実行されるようになりました。',
             'egg_created' => '新しいEggが導入されました。新しいEggを適用するために、実行中のデーモンを再起動する必要があります。',
