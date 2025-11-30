@@ -28,21 +28,20 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
         <Modal {...props} showSpinnerOverlay={isSubmitting}>
             <Form>
                 <FlashMessageRender byKey={'backups:create'} css={tw`mb-4`} />
-                <h2 css={tw`text-2xl mb-6`}>Create server backup</h2>
+                <h2 css={tw`text-2xl mb-6`}>サーバーのバックアップを作成</h2>
                 <Field
                     name={'name'}
-                    label={'Backup name'}
-                    description={'If provided, the name that should be used to reference this backup.'}
+                    label={'バックアップ名'}
+                    description={'このバックアップを参照するために使用する名前。'}
                 />
                 <div css={tw`mt-6`}>
                     <FormikFieldWrapper
                         name={'ignored'}
-                        label={'Ignored Files & Directories'}
+                        label={'無視されるファイルとディレクトリ'}
                         description={`
-                            Enter the files or folders to ignore while generating this backup. Leave blank to use
-                            the contents of the .pteroignore file in the root of the server directory if present.
-                            Wildcard matching of files and folders is supported in addition to negating a rule by
-                            prefixing the path with an exclamation point.
+                            このバックアップを生成するときに無視するファイルまたはフォルダを入力します。
+                            空白のままにすると、サーバー ディレクトリのルートに .pteroignore ファイルが存在する場合、そのファイルの内容が使用されます。
+                            パスの前に感嘆符を付けると、ルールが無効になるだけでなく、ファイルとフォルダのワイルドカード一致もサポートされます。
                         `}
                     >
                         <FormikField as={Textarea} name={'ignored'} rows={6} />
@@ -53,13 +52,13 @@ const ModalContent = ({ ...props }: RequiredModalProps) => {
                         <FormikSwitch
                             name={'isLocked'}
                             label={'Locked'}
-                            description={'Prevents this backup from being deleted until explicitly unlocked.'}
+                            description={'このバックアップが明示的にロック解除されるまで削除されないようにします。'}
                         />
                     </div>
                 </Can>
                 <div css={tw`flex justify-end mt-6`}>
                     <Button type={'submit'} disabled={isSubmitting}>
-                        Start backup
+                        バックアップを開始
                     </Button>
                 </div>
             </Form>
@@ -109,7 +108,7 @@ export default () => {
                 </Formik>
             )}
             <Button css={tw`w-full sm:w-auto`} onClick={() => setVisible(true)}>
-                Create backup
+                バックアップを作成
             </Button>
         </>
     );

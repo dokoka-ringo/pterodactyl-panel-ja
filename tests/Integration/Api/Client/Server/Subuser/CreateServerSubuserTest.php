@@ -99,7 +99,7 @@ class CreateServerSubuserTest extends ClientApiIntegrationTestCase
         ]);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-        $response->assertJsonPath('errors.0.detail', 'The email must be between 1 and 191 characters.');
+        $response->assertJsonPath('errors.0.detail', 'email は、1 文字と 191 文字の間である必要があります。');
         $response->assertJsonPath('errors.0.meta.source_field', 'email');
     }
 
@@ -152,7 +152,7 @@ class CreateServerSubuserTest extends ClientApiIntegrationTestCase
 
         $response->assertStatus(Response::HTTP_BAD_REQUEST);
         $response->assertJsonPath('errors.0.code', 'ServerSubuserExistsException');
-        $response->assertJsonPath('errors.0.detail', 'A user with that email address is already assigned as a subuser for this server.');
+        $response->assertJsonPath('errors.0.detail', 'その電子メールアドレスを持つユーザーは、このサーバーのサブユーザーとしてすでに割り当てられています。');
     }
 
     public static function permissionsDataProvider(): array
