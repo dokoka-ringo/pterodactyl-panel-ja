@@ -20,7 +20,7 @@ trait IntegrationJsonRequestAssertions
                 [
                     'code' => 'NotFoundHttpException',
                     'status' => '404',
-                    'detail' => 'The requested resource could not be found on the server.',
+                    'detail' => '要求されたリソースはサーバー上で見つかりませんでした。',
                 ],
             ],
         ], true);

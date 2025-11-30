@@ -91,7 +91,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
                 'allowed_ips' => $ips,
             ])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.0.detail', 'The allowed ips may not have more than 50 items.');
+            ->assertJsonPath('errors.0.detail', 'allowed ips には 50 を超える項目を含めることはできません。');
     }
 
     /**
@@ -133,7 +133,7 @@ class ApiKeyControllerTest extends ClientApiIntegrationTestCase
         ])
             ->assertUnprocessable()
             ->assertJsonPath('errors.0.meta.rule', 'required')
-            ->assertJsonPath('errors.0.detail', 'The description field is required.');
+            ->assertJsonPath('errors.0.detail', 'description フィールドは必須です。');
 
         $this->postJson('/api/client/account/api-keys', [
             'description' => str_repeat('a', 501),
