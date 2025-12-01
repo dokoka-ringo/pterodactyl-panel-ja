@@ -8,7 +8,7 @@
     <h1>管理概要<small>あなたのシステムをざっと見てみましょう。</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('admin.index') }}">管理</a></li>
-        <li class="active">索引</li>
+        <li class="active">インデックス</li>
     </ol>
 @endsection
 
@@ -29,7 +29,7 @@
                 @if ($version->isLatestPanel())
                 Pterodactyl Panelバージョン<code>{{ config('app.version') }}</code>を実行しています。パネルは最新です！
                 @else
-                    パネルが<strong>最新ではありません！</strong> 最新バージョンは<a href="https://github.com/Pterodactyl/Panel/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> で、最新のバージョンは <code>{{ config('app.version') }}</code>です。
+                    パネルが<strong>最新ではありません！</strong> 最新バージョンは<a href="https://github.com/dokoka-ringo/pterodactyl-panel-ja/releases/v{{ $version->getPanel() }}" target="_blank"><code>{{ $version->getPanel() }}</code></a> で、現在のバージョンは <code>{{ config('app.version') }}</code>です。
                 @endif
             </div>
         </div>

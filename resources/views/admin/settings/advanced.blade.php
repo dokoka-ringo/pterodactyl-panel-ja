@@ -52,7 +52,7 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <div class="alert alert-warning no-margin">
-                                        You are currently using reCAPTCHA keys that were shipped with this Panel. For improved security it is recommended to <a href="https://www.google.com/recaptcha/admin">generate new invisible reCAPTCHA keys</a> that tied specifically to your website.
+                                        あなたは現在、このパネルに同梱されていたreCAPTCHAキーを使用しています。セキュリティを向上させるために、あなたのウェブサイト専用の<a href="https://www.google.com/recaptcha/admin">新しい不可視reCAPTCHAキーを生成する</a>ことをお勧めします。
                                     </div>
                                 </div>
                             </div>
